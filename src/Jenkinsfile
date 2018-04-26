@@ -1,6 +1,10 @@
 pipeline {
   agent none
-  
+  node('jslave') {
+    env.JAVA_HOME="${tool 'jdk-8u161'}"
+    env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
+    sh 'java -version'
+}
   stages {
     stage('Unit Tests'){
       agent {
