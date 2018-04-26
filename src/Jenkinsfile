@@ -11,6 +11,7 @@ pipeline {
       agent {
         label 'apache'
       }
+    }
       steps {
         sh 'ant -f build.xml -v'      
       }
