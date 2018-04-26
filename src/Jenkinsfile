@@ -6,7 +6,11 @@ pipeline {
       agent {
         label 'apache'
       }
-      
+    }
+      steps {
+        sh 'ant -f test.xml -v'
+        junit 'reports/result.xml'
+      }
     stage('build'){
       agent {
         label 'apache'
@@ -26,12 +30,12 @@ pipeline {
         label 'apache'
       }
       steps {
-        sh "cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all"      
+        sh "cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/"      
       }
     }
     stage("Running on CentOS") {
       agent {
-        label 'centos'
+        label 'CentOS'
       }
       steps {
         sh "wget vagrant@jslave.example.com/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
@@ -39,4 +43,4 @@ pipeline {
       }
     }
   }
-}
+
