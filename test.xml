@@ -22,7 +22,7 @@
   </target>
 
   <target name="compile" depends="makedir">
-    <javac srcdir="${src.dir}" destdir="${build.dir}" executable="/home/jenkins/jdk1.8.0_172/bin/javac" compiler="${compiler}">
+    <javac srcdir="${src.dir}" destdir="${build.dir}">
       <classpath refid="class.path" />
     </javac>
   </target>
