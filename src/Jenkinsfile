@@ -34,7 +34,7 @@ pipeline {
     }
     stage("Running on CentOS") {
       agent {
-        label 'jslave'
+        label 'CentOS'
       }
       steps {
         sh "wget vagrant@jslave.example.com/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
