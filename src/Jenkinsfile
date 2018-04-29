@@ -50,7 +50,7 @@ pipeline {
         branch 'master'
       }
       steps{
-        sh "cp -r /var/www/html/rectangles/all/ /var/www/html/rectangles/green/
+        sh "cp -r /var/www/html/rectangles/all/ /var/www/html/rectangles/green/"
       }
     } 
     stage('Promote Development Branch to Master') {
