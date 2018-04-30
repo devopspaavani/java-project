@@ -2,7 +2,7 @@ pipeline {
   agent none
   
   environment {
-    MAJOR_VERSION =1
+    MAJOR_VERSION = 1
   }
   
   stages {
@@ -65,7 +65,7 @@ pipeline {
         branch 'development'
       }
       steps {
-        echo "Stashing Any Local Changes"
+        echo "Stashing Any Local Changes"  
         sh 'git stash'
         echo "Checking Out Development"
         sh 'git checkout development'
@@ -76,8 +76,8 @@ pipeline {
         echo "Pushing to Origin Master"
         sh 'git push origin master'
         echo 'Tagging the Release'
-        sh "git tag rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar "
-        sh "git push origin rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar"
+        sh 'git tag rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar '
+        sh 'git push origin rectangle-${env.MAJOR_VERSION}.${env.BUILD_NUMBER}.jar'
       }
     }
   }
